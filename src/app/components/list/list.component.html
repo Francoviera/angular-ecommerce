@@ -1,0 +1,13 @@
+<div class="list-group aling-center">
+    <div class="row" *ngIf="itemsFiltered.length === 0">
+        <div class="col-md-4" *ngFor="let item of items" >
+            <app-shop-item [product]="item" ></app-shop-item>
+        </div>
+    </div>
+    <div class="row" *ngIf="itemsFiltered.length > 0">
+        <div class="col-md-4" *ngFor="let item of itemsFiltered" >
+            <app-shop-item [product]="item" ></app-shop-item>
+        </div>
+    </div>
+ 
+</div>

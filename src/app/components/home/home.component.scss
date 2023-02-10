@@ -1,0 +1,22 @@
+.shopCart {
+    i{
+        font-size: 20px;
+    }
+    span{
+        position: absolute;
+        right: 21px;
+        bottom: 5px;
+    }
+}
+.shop-cart-list{
+    position: absolute !important;
+    right: 16px;
+    top: 50px;
+    z-index: 2;
+}
+.btn-delete{
+    font-size: 25px;
+}
+.btn-delete:hover{
+    color: red;
+}   

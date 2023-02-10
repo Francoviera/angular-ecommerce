@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Lista</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Busca aqui" aria-label="Search" name="search" [(ngModel)]="searchInput">
+            <button class="btn btn-outline-success" type="button" [disabled]="searchInput === '' || searchInput === ' '" (click)="search()">Filtrar</button>
+        </form>
+        <div class="ms-3 me-3 shopCart">
+            <a type="button" (click)="toggleShopCart()">
+              <i class="bi bi-cart"></i>
+            </a>
+            <span>{{counter | async}}</span>
+        </div>
+        <ul class="list-group shop-cart-list" [hidden]="shopCartListSelected" >
+          <li class="list-group-item d-flex justify-content-between align-items-start" *ngFor="let item of shopCartList">
+            <span class="badge bg-primary rounded-pill me-3 m-auto">{{item.lot}}</span>
+            <div class="ms-2 me-auto">
+              <div class="fw-bold text-center">{{item?.product?.title}}</div>
+              <img [src]="item?.product?.img" alt="Imagen" width="100px" height="65px">
+            </div>
+            <a type="button" class="ms-2" (click)="removeItem(item)">
+              <i class="bi bi-x btn-delete"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<app-list #ListComponent></app-list>
